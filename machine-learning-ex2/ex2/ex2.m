@@ -81,6 +81,8 @@ pause;
 %  Set options for fminunc
 options = optimset('GradObj', 'on', 'MaxIter', 400);
 
+[val, grad] = costFunction(initial_theta, X, y);
+
 %  Run fminunc to obtain the optimal theta
 %  This function will return theta and the cost 
 [theta, cost] = ...
@@ -90,6 +92,8 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
 fprintf('Cost at theta found by fminunc: %f\n', cost);
 fprintf('theta: \n');
 fprintf(' %f \n', theta);
+fprintf('Gradient now: \n');
+fprintf(' %f \n', grad);
 
 % Plot Boundary
 plotDecisionBoundary(theta, X, y);
